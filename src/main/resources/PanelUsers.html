@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona domowa pracowników</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">WYLOGUJ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Użytkownik: <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Lista lokali
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Kod pocztowy</th>
+                                <th scope="col">Miasto</th>
+                                <th scope="col">Ulica</th>
+                                <th scope="col">Numer domu</th>
+                                <th scope="col">Numer lokalu</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>40-040</td>
+                                <td>Katowice</td>
+                                <td>Korfantego</td>
+                                <td>21</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>44-100</td>
+                                <td>Gliwice</td>
+                                <td>Zwycięstwa</td>
+                                <td>122</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>41-800</td>
+                                <td>Zabrze</td>
+                                <td>Wolności</td>
+                                <td>330</td>
+                                <td>3</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Dane lokalu
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <form>
+                            <div class="form-group row">
+                                <label for="staticCity" class="col-sm-2 col-form-label">Miejscowość</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticCity"
+                                           value="Miejscowość">
+                                </div>
+                                <label for="staticPostCode" class="col-sm-2 col-form-label">Kod pocztowy</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticPostCode"
+                                           value="Kod pocztowy">
+                                </div>
+                                <label for="staticStreet" class="col-sm-2 col-form-label">Ulica</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticStreet"
+                                           value="Ulica">
+                                </div>
+                                <label for="staticNumberOfHouse" class="col-sm-2 col-form-label">Numer domu</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticNumberOfHouse"
+                                           value="Numer">
+                                </div>
+                                <label for="staticNumberOfApartment" class="col-sm-2 col-form-label">Numer domu</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticNumberOfApartment"
+                                           value="Numer">
+                                </div>
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-outline-success">Zgłoś awarię</button>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Lista wpłat
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th scope="col">Data</th>
+                                <th scope="col">Numer</th>
+                                <th scope="col">Opis</th>
+                                <th scope="col">Kwota</th>
+                                <th scope="col">Zapłacone</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">2019-04-04</th>
+                                <td>FK2001</td>
+                                <td>Rachunek za najem</td>
+                                <td>100.00</td>
+                                <td>TAK</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2019-04-05</th>
+                                <td>FK2002</td>
+                                <td>Rachunek za najem</td>
+                                <td>110.00</td>
+                                <td>TAK</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2019-04-06</th>
+                                <td>FK2011</td>
+                                <td>Rachunek za najem</td>
+                                <td>120.00</td>
+                                <td>NIE</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
