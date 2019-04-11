@@ -6,5 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/owners")
 public class OwnerController {
+    private OwnerRepository ownerRepository;
 
+    public OwnerController(OwnerRepository ownerRepository) {
+        this.ownerRepository = ownerRepository;
+    }
 }
