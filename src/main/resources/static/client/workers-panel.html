@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Strona domowa pracowników</title>
     <script src="jquery-3.3.1.min.js" defer></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -71,23 +72,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Wspólnota1</td>
-                                    <td>Katowice</td>
-                                    <td>Korfantego</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Wspólnota2</td>
-                                    <td>Gliwice</td>
-                                    <td>Zwycięstwa</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Wspólnota3</td>
-                                    <td>Zabrze</td>
-                                    <td>Wolności</td>
+                                <tr id="tr-community-template">
+                                    <th class="th-id" scope="row"></th>
+                                    <td class="td-community-name"></td>
+                                    <td class="td-community-city"></td>
+                                    <td class="td-community-street"></td>
+                                    <td class="td-community-number-house"></td>
+                                    <td class="td-community-number-apartment"></td>
                                 </tr>
                                 </tbody>
                             </table>

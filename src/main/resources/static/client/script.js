@@ -1,65 +1,28 @@
-$("#button-add").click(function () {
-    const title = $("#input-title").val();
-    const author = $("#input-author").val();
-    const pageCount = $("#input-page-count").val();
 
-    const book = {
-        title: title,
-        author: author,
-        pageCount: pageCount
-    };
 
+function reloadTableCommunities() {
     $.ajax({
-        url: "http://localhost:8080/books",
-        method: "post",
-        data: JSON.stringify(book),
-        contentType: "application/json",
-        success: function () {
-            alert("Utworzono książkę");
-            reloadTable();
-        }
-    });
-});
-
-function deleteBookById(id) {
-    $.ajax({
-        url: "http://localhost:8080/books/" + id,
-        method: "delete",
-        success: function () {
-            alert("Usunięto książkę");
-            reloadTable();
-        }
-    });
-}
-
-$("#button-delete").click(function() {
-    const id = $("#input-id").val();
-    deleteBookById(id);
-});
-
-function reloadTable() {
-    $.ajax({
-        url: "http://localhost:8080/books",
+        url: "http://localhost:8080/communities/",
         method: "get",
-        success: function (books) {
-            const $trBookTemplate = $("#tr-book-template");
+        success: function (communities) {
+            const $trCommunityTemplate = $("#tr-community-template");
             const $tbody = $("tbody");
-            $tbody.children("tr:not(#tr-book-template)").remove();
-            for (let i = 0; i < books.length; i++) {
-                const book = books[i];
-                const $trBook = $trBookTemplate.clone();
-                $trBook.removeAttr("id");
-                $trBook.children(".td-id").html('<a href="edit.html#' + book.id + '">' + book.id + '</a>');
-                $trBook.children(".td-title").text(book.title);
-                $trBook.children(".td-author").text(book.author);
-                $trBook.children(".td-page-count").text(book.pageCount);
-                $trBook.find(".button-delete").click(function() {
-                    deleteBookById(book.id);
-                });
-                $tbody.append($trBook);
+            $tbody.children("tr:not(#tr-community-template)").remove();
+            for (let i = 0; i < communities.length; i++) {
+                const community = communities[i];
+                const $trCommunity = $trCommunityTemplate.clone();
+                // $trCommunity.removeAttr("id");
+                // $trCommunity.children(".th-id").html('<a href="edit.html#' + community.id + '">' + community.id + '</a>');
+                $trCommunity.children(".th-id").text(community.id);
+                $trCommunity.children(".td-community-name").text(community.name);
+                $trCommunity.children(".td-community-city").text(community.city);
+                $trCommunity.children(".td-community-street").text(community.street);
+                $trCommunity.children(".td-community-number-house").text(community.numberOfHouse);
+                $trCommunity.children(".td-community-number-apartment").text(community.numberOfApartment);
+                $tbody.append($trCommunity);
             }
         }
     });
 }
 
-reloadTable();
+reloadTableCommunities();
