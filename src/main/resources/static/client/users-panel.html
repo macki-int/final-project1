@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Strona domowa użytkowników</title>
-    <script src="jquery-3.3.1.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.js"
+            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+            crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -15,6 +17,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    <script src="users-script.js" defer></script>
 </head>
 
 <body>
@@ -32,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Użytkownik: <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="users-panel.html">Użytkownik: <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>
@@ -49,46 +52,28 @@
                     Lista lokali
                 </div>
                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
                         <table class="table table-sm">
                             <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Kod pocztowy</th>
-                                <th scope="col">Miasto</th>
                                 <th scope="col">Ulica</th>
                                 <th scope="col">Numer domu</th>
                                 <th scope="col">Numer lokalu</th>
+                                <th scope="col">Kod pocztowy</th>
+                                <th scope="col">Miasto</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>40-040</td>
-                                <td>Katowice</td>
-                                <td>Korfantego</td>
-                                <td>21</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>44-100</td>
-                                <td>Gliwice</td>
-                                <td>Zwycięstwa</td>
-                                <td>122</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>41-800</td>
-                                <td>Zabrze</td>
-                                <td>Wolności</td>
-                                <td>330</td>
-                                <td>3</td>
+                            <tr id="tr-apartment-template">
+                                <td class="td-apartment-id"></td>
+                                <td class="td-apartment-street"></td>
+                                <td class="td-apartment-number-of-house"></td>
+                                <td class="td-apartment-number-of-apartment"></td>
+                                <td class="td-apartment-post-code"></td>
+                                <td class="td-apartment-city"></td>
                             </tr>
                             </tbody>
                         </table>
-
                         <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
@@ -106,7 +91,6 @@
                                 </li>
                             </ul>
                         </nav>
-                    </blockquote>
                 </div>
             </div>
         </div>
@@ -123,38 +107,31 @@
                     Dane lokalu
                 </div>
                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
                         <form>
                             <div class="form-group row">
-                                <label for="staticCity" class="col-sm-2 col-form-label">Miejscowość</label>
+                                <label for="input-street" class="col-sm-2 col-form-label">Ulica</label>
                                 <div class="col-sm-10">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticCity"
-                                           value="Miejscowość">
+                                    <input type="text" readonly class="form-control-plaintext" id="input-street">
                                 </div>
-                                <label for="staticPostCode" class="col-sm-2 col-form-label">Kod pocztowy</label>
+                                <label for="input-number-of-house" class="col-sm-2 col-form-label">Numer domu</label>
                                 <div class="col-sm-10">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticPostCode"
-                                           value="Kod pocztowy">
+                                    <input type="text" readonly class="form-control-plaintext" id="input-number-of-house">
                                 </div>
-                                <label for="staticStreet" class="col-sm-2 col-form-label">Ulica</label>
+                                <label for="input-number-of-apartment" class="col-sm-2 col-form-label">Numer mieszkania</label>
                                 <div class="col-sm-10">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticStreet"
-                                           value="Ulica">
+                                    <input type="text" readonly class="form-control-plaintext" id="input-number-of-apartment">
                                 </div>
-                                <label for="staticNumberOfHouse" class="col-sm-2 col-form-label">Numer domu</label>
+                                <label for="input-post-code" class="col-sm-2 col-form-label">Kod pocztowy</label>
                                 <div class="col-sm-10">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticNumberOfHouse"
-                                           value="Numer">
+                                    <input type="text" readonly class="form-control-plaintext" id="input-post-code">
                                 </div>
-                                <label for="staticNumberOfApartment" class="col-sm-2 col-form-label">Numer domu</label>
+                                <label for="input-city" class="col-sm-2 col-form-label">Miejscowość</label>
                                 <div class="col-sm-10">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticNumberOfApartment"
-                                           value="Numer">
+                                    <input type="text" readonly class="form-control-plaintext" id="input-city">
                                 </div>
                             </div>
                         </form>
                         <button type="button" class="btn btn-outline-success">Zgłoś awarię</button>
-                    </blockquote>
                 </div>
             </div>
         </div>
@@ -164,7 +141,6 @@
                     Lista wpłat
                 </div>
                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
                         <table class="table table-sm">
                             <thead>
                             <tr>
@@ -172,7 +148,7 @@
                                 <th scope="col">Numer</th>
                                 <th scope="col">Opis</th>
                                 <th scope="col">Kwota</th>
-                                <th scope="col">Zapłacone</th>
+                                <th scope="col">Zapłacono</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -182,20 +158,6 @@
                                 <td>Rachunek za najem</td>
                                 <td>100.00</td>
                                 <td>TAK</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2019-04-05</th>
-                                <td>FK2002</td>
-                                <td>Rachunek za najem</td>
-                                <td>110.00</td>
-                                <td>TAK</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2019-04-06</th>
-                                <td>FK2011</td>
-                                <td>Rachunek za najem</td>
-                                <td>120.00</td>
-                                <td>NIE</td>
                             </tr>
                             </tbody>
                         </table>
@@ -217,7 +179,6 @@
                                 </li>
                             </ul>
                         </nav>
-                    </blockquote>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-package pl.sda.finalproject.community;
+package pl.sda.finalproject.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +9,11 @@ import javax.persistence.Id;
 public class Community {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
     private String postCode;
     private String city;
+    private String street;
     private String numberOfHouse;
     private String numberOfApartment;
     private String phoneNumber;
@@ -37,6 +38,14 @@ public class Community {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getPostCode() {

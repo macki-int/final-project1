@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Strona domowa pracowników</title>
-    <script src="jquery-3.3.1.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.js"
+            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+            crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -16,6 +17,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -33,15 +35,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Start <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="workers-panel.html">Start <span class="sr-only">(current)</span></a>
                         </li>
-                        <!--                        <li class="nav-item">-->
-                        <!--                            <a class="nav-link" href="#">Link</a>-->
-                        <!--                        </li>-->
-                        <!--                <li class="nav-item">-->
-                        <!--                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
-                        <!--                </li>-->
-                    </ul>
+                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -61,24 +57,23 @@
                     Lista wspólnot
                 </div>
                 <div class="card-body">
-<!--                        <blockquote class="blockquote mb-0">-->
-                            <table class="table table-sm">
+                            <table id="table-communities" class="table table-sm">
                                 <thead>
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Nazwa</th>
-                                    <th scope="col">Miasto</th>
                                     <th scope="col">Ulica</th>
+                                    <th scope="col">Nr</th>
+                                    <th scope="col">Miasto</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr id="tr-community-template">
-                                    <th class="th-id" scope="row"></th>
-                                    <td class="td-community-name"></td>
-                                    <td class="td-community-city"></td>
+                                    <td class="td-community-id"></td>
+                                    <td class="td-community-username"></td>
                                     <td class="td-community-street"></td>
-                                    <td class="td-community-number-house"></td>
-                                    <td class="td-community-number-apartment"></td>
+                                    <td class="td-community-number-of-house"></td>
+                                    <td class="td-community-city"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -107,7 +102,6 @@
                                     Pokaż nieaktywne
                                 </label>
                             </div>
-<!--                        </blockquote>-->
                     </div>
                 </div>
             </div>
@@ -119,41 +113,40 @@
 <div class="container">
     <br>
     <div class="card">
-        <div class="card-header">
-            Dane wspólnoty
-        </div>
+        <h5 class="card-header">
+            <input type="text" readonly class="form-control-plaintext" id="input-id">
+        </h5>
         <div class="card-body">
-<!--            <blockquote class="blockquote mb-0">-->
                 <form>
                     <div class="form-group row">
-                        <label for="staticName" class="col-sm-2 col-form-label">Nazwa</label>
+                        <label for="input-username" class="col-sm-2 col-form-label">Nazwa</label>
                         <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticName"
-                                   value="Wspólnota1">
+                            <input type="text" readonly class="form-control-plaintext" id="input-username">
                         </div>
-                        <label for="staticStreet" class="col-sm-2 col-form-label">Ulica</label>
+                        <label for="input-street" class="col-sm-2 col-form-label">Ulica</label>
                         <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticStreet" value="Ulica">
+                            <input type="text" readonly class="form-control-plaintext" id="input-street">
                         </div>
-                        <label for="staticPostCode" class="col-sm-2 col-form-label">Nazwa</label>
+                        <label for="input-number-of-house" class="col-sm-2 col-form-label">Numer</label>
                         <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticPostCode"
-                                   value="Kod pocztowy">
+                            <input type="text" readonly class="form-control-plaintext" id="input-number-of-house">
                         </div>
-                        <label for="staticCity" class="col-sm-2 col-form-label">Miejscowość</label>
+                        <label for="input-post-code" class="col-sm-2 col-form-label">Kod pocztowy</label>
                         <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticCity"
-                                   value="Miejscowość">
+                            <input type="text" readonly class="form-control-plaintext" id="input-post-code">
                         </div>
-                        <label for="staticNip" class="col-sm-2 col-form-label">NIP</label>
+                        <label for="input-city" class="col-sm-2 col-form-label">Miejscowość</label>
                         <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticNip" value="Nip">
+                            <input type="text" readonly class="form-control-plaintext" id="input-city">
+                        </div>
+                        <label for="input-nip" class="col-sm-2 col-form-label">NIP</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="input-nip">
                         </div>
                     </div>
                 </form>
                 <button type="button" class="btn btn-outline-success">Lista lokali</button>
                 <button type="button" class="btn btn-outline-success">Lista najemców</button>
-<!--            </blockquote>-->
         </div>
     </div>
 </div>

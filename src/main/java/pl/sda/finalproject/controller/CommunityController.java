@@ -1,6 +1,8 @@
-package pl.sda.finalproject.community;
+package pl.sda.finalproject.controller;
 
 import org.springframework.web.bind.annotation.*;
+import pl.sda.finalproject.model.Community;
+import pl.sda.finalproject.repository.CommunityRepository;
 
 import java.util.List;
 
@@ -16,6 +18,12 @@ public class CommunityController {
     @GetMapping
     public List<Community> get(){
         return communityRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Community get(@PathVariable long id){
+        return communityRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Community is not exist in DB"));
     }
 
     @PostMapping

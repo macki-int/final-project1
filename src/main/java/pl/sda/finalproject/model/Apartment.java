@@ -1,4 +1,4 @@
-package pl.sda.finalproject.owner;
+package pl.sda.finalproject.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,21 +6,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Owner {
+public class Apartment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String firstName;
-    private String lastName;
-    private String postCode;
     private String city;
+    private String postCode;
+    private String street;
     private String numberOfHouse;
     private String numberOfApartment;
-    private String phoneNumber;
-    private String email;
+    private long idOwner;
+    private boolean inactive;
 
+    public Apartment() {
+    }
 
-    public Owner() {
+    public boolean isInactive() {
+        return inactive;
+    }
+
+    public void setInactive(boolean inactive) {
+        this.inactive = inactive;
     }
 
     public long getId() {
@@ -31,20 +37,12 @@ public class Owner {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getCity() {
+        return city;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getPostCode() {
@@ -55,12 +53,12 @@ public class Owner {
         this.postCode = postCode;
     }
 
-    public String getCity() {
-        return city;
+    public String getStreet() {
+        return street;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getNumberOfHouse() {
@@ -79,19 +77,11 @@ public class Owner {
         this.numberOfApartment = numberOfApartment;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public long getIdOwner() {
+        return idOwner;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIdOwner(long idOwner) {
+        this.idOwner = idOwner;
     }
 }

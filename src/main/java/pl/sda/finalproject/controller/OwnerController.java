@@ -1,7 +1,8 @@
-package pl.sda.finalproject.owner;
+package pl.sda.finalproject.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.sda.finalproject.repository.OwnerRepository;
 
 @RestController
 @RequestMapping("/owners")
