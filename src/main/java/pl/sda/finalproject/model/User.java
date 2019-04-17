@@ -1,6 +1,7 @@
 package pl.sda.finalproject.model;
 
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,7 +25,7 @@ public class User implements UserDetails {
     public enum Role {
         ADMIN,
         USER,
-        WORKER
+        VIEWER
     }
 
     public User() {
