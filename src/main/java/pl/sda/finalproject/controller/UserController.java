@@ -44,7 +44,7 @@ public class UserController {
     public User getViewer(Principal principal) {
         String username = principal.getName();
         return userRepository.findByUsername(username)
-                .orElseThrow(()->new UsernameNotFoundException());
+                .orElseThrow(()->new UsernameNotFoundException(username));
         //TODO - sprawdzić jak i dlaczego
     }
 }
