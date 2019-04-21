@@ -19,13 +19,15 @@ public class User implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToOne(mappedBy = "user")
+    @OneToOne
+    @PrimaryKeyJoinColumn
     private Owner owner;
+
 
     public enum Role {
         ADMIN,
         USER,
-        VIEWER
+        WORKER
     }
 
     public User() {
@@ -41,6 +43,9 @@ public class User implements UserDetails {
         this.id = id;
     }
 
+    public Long getId() {
+        return id;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -76,4 +81,6 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return false;
     }
+
+
 }

@@ -16,12 +16,27 @@ public class Owner {
     private String phoneNumber;
     private String email;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name="apartment_id", referencedColumnName = "id")
+//    private Apartment apartment;
 
 
     public Owner() {
     }
+
+    public Owner(String firstName, String lastName, String postCode, String city, String numberOfHouse, String numberOfApartment, String phoneNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.postCode = postCode;
+        this.city = city;
+        this.numberOfHouse = numberOfHouse;
+        this.numberOfApartment = numberOfApartment;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
 
     public Long getId() {
         return id;
@@ -95,11 +110,5 @@ public class Owner {
         this.email = email;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

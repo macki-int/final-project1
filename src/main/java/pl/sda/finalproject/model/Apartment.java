@@ -1,9 +1,6 @@
 package pl.sda.finalproject.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Apartment {
@@ -15,8 +12,11 @@ public class Apartment {
     private String street;
     private String numberOfHouse;
     private String numberOfApartment;
-    private long idOwner;
+//    private long idOwner;
     private boolean inactive;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+//    private Owner owner;
 
     public Apartment() {
     }
@@ -77,11 +77,5 @@ public class Apartment {
         this.numberOfApartment = numberOfApartment;
     }
 
-    public long getIdOwner() {
-        return idOwner;
-    }
 
-    public void setIdOwner(long idOwner) {
-        this.idOwner = idOwner;
-    }
 }

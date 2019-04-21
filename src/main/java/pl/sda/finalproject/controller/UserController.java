@@ -31,17 +31,17 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @Secured("ROLE_USER")
-    @GetMapping("/users")
-    public List<User> getUsers() {
+    @Secured("ROLE_WORKER")
+    @GetMapping("/workers")
+    public List<User> getWorkers() {
         //TODO
         //return userRepository.findAll();
         return null;
     }
 
-    @Secured("ROLE_VIEWER")
-    @GetMapping("/viewers")
-    public User getViewer(Principal principal) {
+    @Secured("ROLE_USER")
+    @GetMapping("/users")
+    public User getUser(Principal principal) {
         String username = principal.getName();
         return userRepository.findByUsername(username)
                 .orElseThrow(()->new UsernameNotFoundException(username));
