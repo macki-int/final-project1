@@ -17,7 +17,7 @@ public class Community {
     private String email;
     private String nip;
     private boolean inactive;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "community")
+    @OneToOne(mappedBy = "community")
     private CommunityAccount communityAccount;
 
     public Community() {

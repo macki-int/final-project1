@@ -10,8 +10,8 @@ public class CommunityAccount {
     private String bankName;
     private String number;
     private boolean inactive;
-    @ManyToOne
-    @JoinColumn(name="community_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(foreignKey = @ForeignKey(name = "FK_COMMUNITY_ID"))
     private Community community;
 
     public CommunityAccount() {
