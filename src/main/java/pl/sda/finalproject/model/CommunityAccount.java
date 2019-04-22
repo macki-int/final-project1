@@ -10,7 +10,7 @@ public class CommunityAccount {
     private String bankName;
     private String number;
     private boolean inactive;
-    @ManyToOne
+    @OneToMany(mappedBy = "community")
     private Community community;
 
     public CommunityAccount() {
