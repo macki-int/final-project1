@@ -1,9 +1,6 @@
 package pl.sda.finalproject.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Community {
@@ -16,10 +13,12 @@ public class Community {
     private String street;
     private String numberOfHouse;
     private String numberOfApartment;
-    private String phoneNumber;
+    private String phone;
     private String email;
     private String nip;
     private boolean inactive;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "community")
+    private CommunityAccount communityAccount;
 
     public Community() {
     }
@@ -80,12 +79,12 @@ public class Community {
         this.numberOfApartment = numberOfApartment;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -110,5 +109,13 @@ public class Community {
 
     public void setInactive(boolean inactive) {
         this.inactive = inactive;
+    }
+
+    public CommunityAccount getCommunityAccount() {
+        return communityAccount;
+    }
+
+    public void setCommunityAccount(CommunityAccount communityAccount) {
+        this.communityAccount = communityAccount;
     }
 }

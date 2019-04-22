@@ -13,7 +13,7 @@ public class Owner {
     private String city;
     private String numberOfHouse;
     private String numberOfApartment;
-    private String phoneNumber;
+    private String phone;
     private String email;
     @OneToOne(mappedBy = "owner")
     private User user;
@@ -26,14 +26,14 @@ public class Owner {
     public Owner() {
     }
 
-    public Owner(String firstName, String lastName, String postCode, String city, String numberOfHouse, String numberOfApartment, String phoneNumber, String email) {
+    public Owner(String firstName, String lastName, String postCode, String city, String numberOfHouse, String numberOfApartment, String phone, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.postCode = postCode;
         this.city = city;
         this.numberOfHouse = numberOfHouse;
         this.numberOfApartment = numberOfApartment;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.email = email;
     }
 
@@ -94,12 +94,12 @@ public class Owner {
         this.numberOfApartment = numberOfApartment;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {

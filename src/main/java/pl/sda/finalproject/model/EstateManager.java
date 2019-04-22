@@ -17,6 +17,7 @@ public class EstateManager {
     private String street;
     private String numberOfHouse;
     private String numberOfApartment;
+    private String phone;
     private String email;
     private String nip;
     private Blob logo;
@@ -79,6 +80,14 @@ public class EstateManager {
 
     public void setNumberOfApartment(String numbetOfApartment) {
         this.numberOfApartment = numbetOfApartment;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
