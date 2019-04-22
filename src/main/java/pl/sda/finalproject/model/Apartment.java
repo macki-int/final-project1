@@ -12,10 +12,13 @@ public class Apartment {
     private String street;
     private String numberOfHouse;
     private String numberOfApartment;
-//    private long idOwner;
     private boolean inactive;
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+//    private Owner owner;
+
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "community_id", referencedColumnName = "id")
 //    private Owner owner;
 
     public Apartment() {

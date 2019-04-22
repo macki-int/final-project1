@@ -15,7 +15,7 @@ public class Owner {
     private String numberOfApartment;
     private String phoneNumber;
     private String email;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "owner")
     private User user;
 
 //    @OneToMany(cascade = CascadeType.ALL)
