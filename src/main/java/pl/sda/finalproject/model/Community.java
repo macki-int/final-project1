@@ -1,6 +1,7 @@
 package pl.sda.finalproject.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Community {
@@ -17,9 +18,10 @@ public class Community {
     private String email;
     private String nip;
     private boolean inactive;
-//    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private CommunityAccount communityAccount;
-
+    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CommunityAccount> communityAccounts;
+    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Apartment> apartments;
     public Community() {
     }
 
@@ -110,6 +112,5 @@ public class Community {
     public void setInactive(boolean inactive) {
         this.inactive = inactive;
     }
-
 
 }
