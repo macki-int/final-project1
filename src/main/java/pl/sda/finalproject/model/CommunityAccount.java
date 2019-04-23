@@ -10,9 +10,9 @@ public class CommunityAccount {
     private String bankName;
     private String number;
     private boolean inactive;
-    @ManyToOne
-    @JoinColumn(name="community_id")
-    private Community community;
+//    @ManyToOne
+//    @JoinColumn(name="community_id")
+//    private Community community;
 
     public CommunityAccount() {
     }
@@ -49,12 +49,5 @@ public class CommunityAccount {
         this.inactive = inactive;
     }
 
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
 
 }

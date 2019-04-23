@@ -17,8 +17,8 @@ public class Community {
     private String email;
     private String nip;
     private boolean inactive;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "community")
-    private CommunityAccount communityAccount;
+//    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private CommunityAccount communityAccount;
 
     public Community() {
     }
@@ -111,11 +111,5 @@ public class Community {
         this.inactive = inactive;
     }
 
-    public CommunityAccount getCommunityAccount() {
-        return communityAccount;
-    }
 
-    public void setCommunityAccount(CommunityAccount communityAccount) {
-        this.communityAccount = communityAccount;
-    }
 }

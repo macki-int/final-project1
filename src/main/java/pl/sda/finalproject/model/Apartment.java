@@ -13,13 +13,29 @@ public class Apartment {
     private String numberOfHouse;
     private String numberOfApartment;
     private boolean inactive;
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "owner_id", referencedColumnName = "id")
-//    private Owner owner;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
 
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "community_id", referencedColumnName = "id")
 //    private Owner owner;
+
+//    @Entity
+//    public class StronaJeden {
+//        @Id Long id;
+//        @OneToMany(mappedBy="stronaJeden")
+//        List stronyWiele;
+//    }
+//
+//    @Entity
+//    public class StronaWiele {
+//        @Id Long id;
+//        @ManyToOne
+//        @JoinColumn("strona_jeden_id")
+//        StronaJeden stronaJeden;
+//    }
+
 
     public Apartment() {
     }
