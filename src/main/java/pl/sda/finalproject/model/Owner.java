@@ -21,9 +21,7 @@ public class Owner {
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Apartment> apartments;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name="apartment_id", referencedColumnName = "id")
-//    private Apartment apartment;
+
 
 
     public Owner() {
