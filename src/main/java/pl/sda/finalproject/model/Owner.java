@@ -1,6 +1,9 @@
 package pl.sda.finalproject.model;
 
+import org.springframework.web.bind.annotation.GetMapping;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Owner {
@@ -17,10 +20,9 @@ public class Owner {
     private String email;
     @OneToOne(mappedBy = "owner")
     private User user;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    private List<Invoice> invoices;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name="apartment_id", referencedColumnName = "id")
-//    private Apartment apartment;
 
 
     public Owner() {
