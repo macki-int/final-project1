@@ -21,7 +21,8 @@ public class DBInit {
     public void init() {
         List<User> users = Arrays.asList(
                 new User("user1", "password1", User.Role.USER),
-                new User("admin", "admin", User.Role.ADMIN)
+                new User("admin", "admin", User.Role.ADMIN),
+                new User("user2", "password2", User.Role.WORKER)
         );
 
 

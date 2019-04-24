@@ -1,7 +1,6 @@
 package pl.sda.finalproject.model;
 
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,15 +19,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_OWNER_ID"))
+    @JoinColumn(name = "owner_id")
     private Owner owner;
-
-
-    public enum Role {
-        ADMIN,
-        USER,
-        WORKER
-    }
 
     public User() {
     }
@@ -37,10 +29,6 @@ public class User implements UserDetails {
         this.username = username;
         this.password = password;
         this.role = role;
-    }
-
-    public User(Long id) {
-        this.id = id;
     }
 
     public Long getId() {
@@ -64,23 +52,27 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
-
+    public enum Role {
+        ADMIN,
+        USER,
+        WORKER
+    }
 }

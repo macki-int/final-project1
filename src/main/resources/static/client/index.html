@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Title</title>
     <script src="https://code.jquery.com/jquery-3.4.0.js"
             integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
             crossorigin="anonymous" defer></script>
@@ -10,10 +10,15 @@
 </head>
 <body>
 <div id="div-not-logged-in">
-
+    <form>
+        <input type="text" id="input-username">
+        <input type="password" id="input-password">
+        <input type="submit" id="button-login" value="Zaloguj">
+    </form>
 </div>
 <div id="div-logged-in">
-
+    Witaj!
+    <input type="button" id="button-logout" value="Wyloguj">
 </div>
 </body>
 </html>
