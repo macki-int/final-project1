@@ -18,7 +18,6 @@ import pl.sda.finalproject.model.User;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
-
     public SecurityConfiguration(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
@@ -41,14 +40,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .anyRequest()
                     .authenticated();
     }
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("user1")
-//                .password("password")
-//                .roles("USER");
-//    }
 
 
     @Override
