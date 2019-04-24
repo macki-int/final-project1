@@ -10,9 +10,9 @@ public class CommunityAccount {
     private String bankName;
     private String number;
     private boolean inactive;
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "id_community")
+    private Community community;
 
 
     public CommunityAccount() {

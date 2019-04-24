@@ -1,6 +1,7 @@
 package pl.sda.finalproject.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Apartment {
@@ -19,7 +20,8 @@ public class Apartment {
     @ManyToOne
     @JoinColumn(name = "community_id")
     private Owner community;
-
+    @OneToMany(mappedBy = "apartment", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Invoice> invoices;
 
 
     public Apartment() {
