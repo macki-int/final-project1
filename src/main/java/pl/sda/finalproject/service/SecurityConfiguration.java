@@ -34,7 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/client/**")
                     .permitAll()
 
-                    .antMatchers(HttpMethod.GET, "/users")
+                    .antMatchers(HttpMethod.GET, "/users/")
                     .hasRole(User.Role.ADMIN.name())
 
                     .anyRequest()

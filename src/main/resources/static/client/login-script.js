@@ -23,6 +23,7 @@ $("#button-login").click(function (event) {
         success: function() {
             $("#div-not-logged-in").hide();
             $("#div-logged-in").show();
+            console.log(username);
         },
         error: function() {
             alert("błędne dane logowania");
