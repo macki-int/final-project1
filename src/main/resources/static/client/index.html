@@ -2,18 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <script src="https://code.jquery.com/jquery-3.4.0.js"
-            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-            crossorigin="anonymous" defer></script>
+    <title>Logowanie</title>
+    <!--    <script src="https://code.jquery.com/jquery-3.4.0.js"-->
+    <!--            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="-->
+    <!--            crossorigin="anonymous" defer></script>-->
+    <link rel="stylesheet" href="style.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
     <script src="login-script.js" defer></script>
 </head>
 <body>
-<div id="div-not-logged-in">
-
+<div class="container login-container" id="div-not-logged-in">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 login-form">
+            <h3>Logowanie</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="input-username" placeholder="Nazwa użytkownika"
+                           value=""/>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="input-password" placeholder="Hasło" value=""/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" id="button-login" value="Login"/>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <div id="div-logged-in">
-
+    Witaj!
+    <input type="button" id="button-logout" value="Wyloguj">
 </div>
 </body>
 </html>

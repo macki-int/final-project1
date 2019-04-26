@@ -22,6 +22,8 @@ public class Community {
     private List<CommunityAccount> communityAccounts;
     @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Apartment> apartments;
+
+
     public Community() {
     }
 

@@ -17,7 +17,9 @@ public class Invoice {
     @ManyToOne
     @JoinColumn(name = "id_owner")
     private Owner owner;
-
+    @ManyToOne
+    @JoinColumn(name = "id_apartment")
+    private Apartment apartment;
 
     public Invoice() {
     }

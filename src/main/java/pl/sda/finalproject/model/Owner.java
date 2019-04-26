@@ -20,6 +20,8 @@ public class Owner {
     private User user;
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Apartment> apartments;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Invoice> invoices;
 
 
 

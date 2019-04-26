@@ -23,7 +23,7 @@ function reloadTableCommunities() {
 
 $("#table-communities").on('click', 'tr', function () {
     var id = $(this).find("td:first-child").text();
-    console.log(id);
+    // console.log(id);
     $.ajax({
         url: "http://localhost:8080/communities/" + id,
         method: "get",
@@ -39,5 +39,15 @@ $("#table-communities").on('click', 'tr', function () {
     });
 });
 
+$("#navbar-logout").click(function () {
+    $.ajax({
+        url: "http://localhost:8080/logout",
+        method: "post",
+        success: function() {
+            $("#div-not-logged-in").show();
+            $("#div-logged-in").hide();
+        }
+    });
+});
 
 reloadTableCommunities();
