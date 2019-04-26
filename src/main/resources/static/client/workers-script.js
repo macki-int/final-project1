@@ -44,8 +44,8 @@ $("#navbar-logout").click(function () {
         url: "http://localhost:8080/logout",
         method: "post",
         success: function() {
-            $("#div-not-logged-in").show();
-            $("#div-logged-in").hide();
+//            $("#div-not-logged-in").show();
+//            $("#div-logged-in").hide();
         }
     });
 });
