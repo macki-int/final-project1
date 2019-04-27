@@ -13,6 +13,42 @@ function setURL() {
     return url_table;
 }
 
+$("#table-apartments").on('click', 'tr', function () {
+    var id = $(this).find("td:first-child").text();
+    $.ajax({
+        url: "http://localhost:8080/apartments/" + id,
+        method: "get",
+        success: function (apartment) {
+            $("#input-id").val("Identyfikator mieszkania: " + apartment.id);
+            $("#input-city").val(apartment.city);
+            $("#input-post-code").val(apartment.postCode);
+            $("#input-street").val(apartment.street);
+            $("#input-number-of-house").val(apartment.numberOfHouse);
+            $("#input-number-of-apartment").val(apartment.numberOfApartment);
+            $("#input-owner-id").val("Właściciel mieszkania: " + apartment.owner.id);
+            getOwner(apartment.owner.id);
+        }
+    });
+});
+
+function getOwner(id) {
+    $.ajax({
+        url: "http://localhost:8080/owners/" + id,
+        method: "get",
+        success: function (owner) {
+            $("#input-owner-first-name").val(owner.firstName);
+            $("#input-owner-last-name").val(owner.lastName);
+            $("#input-owner-city").val(owner.city);
+            $("#input-owner-post-code").val(owner.postCode);
+            $("#input-owner-street").val(owner.street);
+            $("#input-owner-number-of-house").val(owner.numberOfHouse);
+            $("#input-owner-number-of-apartment").val(owner.numberOfApartment);
+            $("#input-owner-email").val(owner.email);
+            $("#input-owner-phone").val(owner.phone);
+        }
+    });
+}
+
 function reloadTableApartments() {
     url_table =setURL();
     $.ajax({

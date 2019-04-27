@@ -1,5 +1,6 @@
 package pl.sda.finalproject.controller;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.finalproject.model.Community;
 import pl.sda.finalproject.repository.CommunityRepository;
@@ -15,6 +16,7 @@ public class CommunityController {
         this.communityRepository = communityRepository;
     }
 
+    @Secured({"ROLE_ADMIN", "ROLE_WORKER"})
     @GetMapping
     public List<Community> get(){
         return communityRepository.findAll();

@@ -28,23 +28,20 @@ public class UserController {
     @Secured("ROLE_ADMIN")
     @GetMapping("/admins")
     public List<User> getAdmins() {
-        return userRepository.findAll();
+        return userRepository.findByRole(User.Role.ADMIN);
     }
 
-    @Secured("ROLE_WORKER")
+    @Secured({"ROLE_ADMIN", "ROLE_WORKER"})
     @GetMapping("/workers")
     public List<User> getWorkers() {
-        //TODO
-        //return userRepository.findAll();
-        return null;
+        return userRepository.findByRole(User.Role.WORKER);
     }
 
     @Secured("ROLE_USER")
-    @GetMapping("/users")
+    @GetMapping("/user")
     public User getUser(Principal principal) {
         String username = principal.getName();
         return userRepository.findByUsername(username)
                 .orElseThrow(()->new UsernameNotFoundException(username));
-        //TODO - sprawdzić jak i dlaczego
     }
 }

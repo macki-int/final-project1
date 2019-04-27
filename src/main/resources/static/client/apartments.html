@@ -57,11 +57,12 @@
                     Lista mieszkań
                 </div>
                 <div class="card-body">
-                    <table id="table-communities" class="table table-sm">
+                    <table id="table-apartments" class="table table-sm">
                         <thead>
                         <tr>
                             <th>id</th>
                             <th>miasto</th>
+                            <th>kod pocztowy</th>
                             <th>ulica</th>
                             <th>nr domu</th>
                             <th>nr mieszkania</th>
@@ -71,6 +72,7 @@
                         <tr id="tr-apartment-template">
                             <td class="td-id"></td>
                             <td class="td-city"></td>
+                            <td class="td-post-code"></td>
                             <td class="td-street"></td>
                             <td class="td-numberofhouse"></td>
                             <td class="td-numberofapartment"></td>
@@ -110,44 +112,108 @@
 
 <div class="container-fluid">
     <br>
-    <div class="card">
-        <h5 class="card-header">
-            <input type="text" readonly class="form-control-plaintext" id="input-id" value="Identyfikator mieszkania: ">
-        </h5>
-        <div class="card-body">
-            <form>
-                <div class="form-group row">
-                    <label for="input-username" class="col-sm-2 col-form-label">Nazwa</label>
-                    <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="input-username">
-                    </div>
-                    <label for="input-street" class="col-sm-2 col-form-label">Ulica</label>
-                    <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="input-street">
-                    </div>
-                    <label for="input-number-of-house" class="col-sm-2 col-form-label">Numer</label>
-                    <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="input-number-of-house">
-                    </div>
-                    <label for="input-post-code" class="col-sm-2 col-form-label">Kod pocztowy</label>
-                    <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="input-post-code">
-                    </div>
-                    <label for="input-city" class="col-sm-2 col-form-label">Miejscowość</label>
-                    <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="input-city">
-                    </div>
-                    <label for="input-nip" class="col-sm-2 col-form-label">NIP</label>
-                    <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="input-nip">
-                    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <h5 class="card-header">
+                    <input type="text" readonly class="form-control-plaintext" id="input-id"
+                           value="Identyfikator mieszkania: ">
+                </h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="input-city" class="col-sm-2 col-form-label">Miejscowość</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-city">
+                            </div>
+                            <label for="input-post-code" class="col-sm-2 col-form-label">Kod pocztowy</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-post-code">
+                            </div>
+                            <label for="input-street" class="col-sm-2 col-form-label">Ulica</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-street">
+                            </div>
+                            <label for="input-number-of-house" class="col-sm-2 col-form-label">Numer budynku</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-number-of-house">
+                            </div>
+                            <label for="input-number-of-apartment" class="col-sm-2 col-form-label">Numer
+                                mieszkania</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext"
+                                       id="input-number-of-apartment">
+                            </div>
+<!--                            <label for="input-owner-id" class="col-sm-2 col-form-label">Id właściciel</label>-->
+<!--                            <div class="col-sm-10">-->
+<!--                                <input type="text" readonly class="form-control-plaintext"-->
+<!--                                       id="input-owner-id">-->
+<!--                            </div>-->
+                        </div>
+                    </form>
+                    <button type="button" class="btn btn-outline-success" id="button-details">Szczegóły</button>
+                    <button type="button" class="btn btn-outline-success" id="button-edit">Edytuj</button>
                 </div>
-            </form>
-            <button type="button" class="btn btn-outline-success" id="button-details">Szczegóły</button>
-            <button type="button" class="btn btn-outline-success" id="button-edit">Edytuj</button>
+            </div>
+        </div>
+
+
+        <div class="col">
+            <div class="card">
+                <h5 class="card-header">
+                    <input type="text" readonly class="form-control-plaintext" id="input-owner-id" value="Właściciel mieszkania: ">
+                </h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="input-owner-first-name" class="col-sm-2 col-form-label">Imię</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-owner-first-name">
+                            </div>
+                            <label for="input-owner-last-name" class="col-sm-2 col-form-label">Nazwisko</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-owner-last-name">
+                            </div>
+                            <label for="input-owner-city" class="col-sm-2 col-form-label">Miejscowość</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-owner-city">
+                            </div>
+                            <label for="input-owner-post-code" class="col-sm-2 col-form-label">Kod pocztowy</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-owner-post-code">
+                            </div>
+                            <label for="input-owner-street" class="col-sm-2 col-form-label">Ulica</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-owner-street">
+                            </div>
+                            <label for="input-owner-number-of-house" class="col-sm-2 col-form-label">Numer
+                                budynku</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext"
+                                       id="input-owner-number-of-house">
+                            </div>
+                            <label for="input-owner-number-of-apartment" class="col-sm-2 col-form-label">Numer
+                                mieszkania</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext"
+                                       id="input-owner-number-of-apartment">
+                            </div>
+                            <label for="input-owner-email" class="col-sm-2 col-form-label">E-mail</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-owner-email">
+                            </div>
+                            <label for="input-owner-phone" class="col-sm-2 col-form-label">Telefon</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" id="input-owner-phone">
+                            </div>
+                        </div>
+                    </form>
+                    <button type="button" class="btn btn-outline-success" id="button-owner-details">Szczegóły</button>
+                    <button type="button" class="btn btn-outline-success" id="button-owner-edit">Edytuj</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>

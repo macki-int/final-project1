@@ -83,5 +83,7 @@ public class Apartment {
         this.numberOfApartment = numberOfApartment;
     }
 
-
+    public Owner getOwner() {
+        return owner;
+    }
 }
