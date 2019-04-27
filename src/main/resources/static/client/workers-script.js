@@ -42,13 +42,12 @@ $("#table-communities").on('click', 'tr', function () {
 
 $("#button-apartments").on('click', function () {
     const id = $("#input-id").val().substr(25, "#input-id".length);
-    // $.ajax({
-    //     url: "http://localhost:8080/apartments/communities/" + id,
-    //     method: "get",
-    //     success: function () {
-    window.location.href = "apartments.html?filter-type=community&id=" + id;
-    // }
-    // });
+    if(id !== ""){
+        window.location.href = "apartments.html?filter-type=community&id=" + id;
+    }else{
+
+        window.location.href = "apartments.html";
+    }
 });
 
 

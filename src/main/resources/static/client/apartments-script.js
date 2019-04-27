@@ -1,17 +1,20 @@
-var url_string = window.location.href;
-var url = new URL(url_string);
-var filter_type = url.searchParams.get("filter-type");
-var id = url.searchParams.get("id");
-var url_table = "http://localhost:8080/apartments";
-
 function setURL() {
-    if (id !== null) {
-        url_table = "http://localhost:8080/apartments/" + filter_type + "/" + id;
-    }
+    const url_string = window.location.href;
+    const url = new URL(url_string);
+    const filter_type = url.searchParams.get("filter-type");
+    const id = url.searchParams.get("id");
+    let url_table;
 
+    if (id !== null) {
+         url_table = "http://localhost:8080/apartments/" + filter_type + "/" + id;
+    }else{
+         url_table = "http://localhost:8080/apartments";
+    }
+    return url_table;
 }
 
 function reloadTableApartments() {
+    url_table =setURL();
     $.ajax({
         url: url_table,
         method: "get",
