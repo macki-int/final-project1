@@ -11,7 +11,7 @@ public class CommunityAccount {
     private String number;
     private boolean inactive;
     @ManyToOne
-    @JoinColumn(name = "id_community")
+    @JoinColumn(name = "community_id")
     private Community community;
 
 

@@ -9,6 +9,7 @@ function reloadTableCommunities() {
             for (let i = 0; i < communities.length; i++) {
                 const community = communities[i];
                 const $trCommunity = $trCommunityTemplate.clone();
+                $trApartment.removeAttr("id");
                 $trCommunity.children(".td-community-id").text(community.id);
                 $trCommunity.children(".td-community-name").text(community.name);
                 $trCommunity.children(".td-community-street").text(community.street);
