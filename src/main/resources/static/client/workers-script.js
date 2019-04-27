@@ -9,7 +9,7 @@ function reloadTableCommunities() {
             for (let i = 0; i < communities.length; i++) {
                 const community = communities[i];
                 const $trCommunity = $trCommunityTemplate.clone();
-                $trApartment.removeAttr("id");
+                $trCommunity.removeAttr("id");
                 $trCommunity.children(".td-community-id").text(community.id);
                 $trCommunity.children(".td-community-name").text(community.name);
                 $trCommunity.children(".td-community-street").text(community.street);
@@ -29,7 +29,7 @@ $("#table-communities").on('click', 'tr', function () {
         url: "http://localhost:8080/communities/" + id,
         method: "get",
         success: function (community) {
-            $("#input-id").val(community.id);
+            $("#input-id").val("Identyfikator wspólnoty: " + community.id);
             $("#input-name").val(community.name);
             $("#input-street").val(community.street);
             $("#input-number-of-house").val(community.numberOfHouse);
@@ -40,11 +40,23 @@ $("#table-communities").on('click', 'tr', function () {
     });
 });
 
-$("#navbar-logout").click(function () {
+$("#button-apartments").on('click', function () {
+    const id = $("#input-id").val().substr(25, "#input-id".length);
+    // $.ajax({
+    //     url: "http://localhost:8080/apartments/communities/" + id,
+    //     method: "get",
+    //     success: function () {
+    window.location.href = "apartments.html?filter-type=community&id=" + id;
+    // }
+    // });
+});
+
+
+$("#navbar-logout").on('click', function () {
     $.ajax({
         url: "http://localhost:8080/logout",
         method: "post",
-        success: function() {
+        success: function () {
             $("#div-not-logged-in").show();
             $("#div-logged-in").hide();
         }

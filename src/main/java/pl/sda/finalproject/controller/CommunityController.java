@@ -26,6 +26,7 @@ public class CommunityController {
                 .orElseThrow(()-> new RuntimeException("Community is not exist in DB"));
     }
 
+
     @PostMapping
     public Community post(@RequestBody Community community){
         return communityRepository.save(community);

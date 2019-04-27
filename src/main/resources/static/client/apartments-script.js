@@ -1,6 +1,19 @@
+var url_string = window.location.href;
+var url = new URL(url_string);
+var filter_type = url.searchParams.get("filter-type");
+var id = url.searchParams.get("id");
+var url_table = "http://localhost:8080/apartments";
+
+function setURL() {
+    if (id !== null) {
+        url_table = "http://localhost:8080/apartments/" + filter_type + "/" + id;
+    }
+
+}
+
 function reloadTableApartments() {
     $.ajax({
-        url: "http://localhost:8080/apartments",
+        url: url_table,
         method: "get",
         success: function (apartments) {
             const $trApartmentTemplate = $("#tr-apartment-template");
