@@ -1,30 +1,56 @@
 function reloadTableCommunities() {
-    $.ajax({
-        url: "http://localhost:8080/communities",
-        method: "get",
-        success: function (communities) {
-            const $trCommunityTemplate = $("#tr-community-template");
-            const $tbody = $("tbody");
-            $tbody.children("tr:not(#tr-community-template)").remove();
-            for (let i = 0; i < communities.length; i++) {
-                const community = communities[i];
-                const $trCommunity = $trCommunityTemplate.clone();
-                $trCommunity.removeAttr("id");
-                $trCommunity.children(".td-community-id").text(community.id);
-                $trCommunity.children(".td-community-name").text(community.name);
-                $trCommunity.children(".td-community-street").text(community.street);
-                $trCommunity.children(".td-community-number-of-house").text(community.numberOfHouse);
-                $trCommunity.children(".td-community-city").text(community.city);
-                $tbody.append($trCommunity);
+    // const checkBox = document.getElementById("#check-show-active").checked;
+    if ($("#check-show-active").is(":checked")) {
+        $.ajax({
+            url: "http://localhost:8080/communities/active",
+            method: "get",
+            success: function (communities) {
+                const $trCommunityTemplate = $("#tr-community-template");
+                const $tbody = $("tbody");
+                $tbody.children("tr:not(#tr-community-template)").remove();
+                for (let i = 0; i < communities.length; i++) {
+                    const community = communities[i];
+                    const $trCommunity = $trCommunityTemplate.clone();
+                    $trCommunity.removeAttr("id");
+                    $trCommunity.children(".td-community-id").text(community.id);
+                    $trCommunity.children(".td-community-name").text(community.name);
+                    $trCommunity.children(".td-community-street").text(community.street);
+                    $trCommunity.children(".td-community-number-of-house").text(community.numberOfHouse);
+                    $trCommunity.children(".td-community-city").text(community.city);
+                    $tbody.append($trCommunity);
+                }
             }
-        }
-    });
+        });
+    } else {
+        $.ajax({
+            url: "http://localhost:8080/communities",
+            method: "get",
+            success: function (communities) {
+                const $trCommunityTemplate = $("#tr-community-template");
+                const $tbody = $("tbody");
+                $tbody.children("tr:not(#tr-community-template)").remove();
+                for (let i = 0; i < communities.length; i++) {
+                    const community = communities[i];
+                    const $trCommunity = $trCommunityTemplate.clone();
+                    $trCommunity.removeAttr("id");
+                    $trCommunity.children(".td-community-id").text(community.id);
+                    $trCommunity.children(".td-community-name").text(community.name);
+                    $trCommunity.children(".td-community-street").text(community.street);
+                    $trCommunity.children(".td-community-number-of-house").text(community.numberOfHouse);
+                    $trCommunity.children(".td-community-city").text(community.city);
+                    $tbody.append($trCommunity);
+                }
+            }
+        });
+    }
 }
 
 
 $("#table-communities").on('click', 'tr', function () {
-    var id = $(this).find("td:first-child").text();
-    // console.log(id);
+    let id = $(this).find("td:first-child").text();
+    if (id === "") {
+        id = null;
+    }
     $.ajax({
         url: "http://localhost:8080/communities/" + id,
         method: "get",
@@ -42,9 +68,9 @@ $("#table-communities").on('click', 'tr', function () {
 
 $("#button-apartments").on('click', function () {
     const id = $("#input-id").val().substr(25, "#input-id".length);
-    if(id !== ""){
+    if (id !== "") {
         window.location.href = "apartments.html?filter-type=community&id=" + id;
-    }else{
+    } else {
 
         window.location.href = "apartments.html";
     }
@@ -61,5 +87,10 @@ $("#navbar-logout").on('click', function () {
         }
     });
 });
+
+$("#check-show-active").on('click', function () {
+    console.log("checkbox");
+    reloadTableCommunities();
+})
 
 reloadTableCommunities();

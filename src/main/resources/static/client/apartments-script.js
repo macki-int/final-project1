@@ -15,6 +15,9 @@ function setURL() {
 
 $("#table-apartments").on('click', 'tr', function () {
     var id = $(this).find("td:first-child").text();
+    if(id === ""){
+        id=null;
+    }
     $.ajax({
         url: "http://localhost:8080/apartments/" + id,
         method: "get",

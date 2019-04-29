@@ -22,6 +22,12 @@ public class CommunityController {
         return communityRepository.findAll();
     }
 
+    @Secured({"ROLE_ADMIN", "ROLE_WORKER"})
+    @GetMapping("/active")
+    public List<Community> getActive(){
+        return communityRepository.findCommunitiesByInactiveFalse();
+    }
+
     @GetMapping("/{id}")
     public Community get(@PathVariable long id){
         return communityRepository.findById(id)
